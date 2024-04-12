@@ -42,3 +42,10 @@ for nev in nevek:
 print(f"{len(nevek)} névről van adat a listában")
 print(f"Az adott évben {nepesseg} volt az ország népessége")
 print(f"Az adott évben a nők száma: {nok}\nAz adott évben a férfiak száma: {ferfiak}")
+ferfiak = 0
+nok = 0
+for nev in nevek:
+    if nev.nem == "Férfi":
+        ferfiak += nev.ujsz_1
+    else: nok += nev.ujsz_1
+print(f"Az adott évben a újszülött lányok száma: {nok}\nAz adott évben az újszülött fiúk száma: {ferfiak}")
