@@ -23,11 +23,13 @@ class Nev:
         return f"{self.utonev} {self.nem} keresztnevet régen {self.elso} alkalommal adták első keresztnévnek, {self.masodik} alkalommal második keresztnévnek.\
         \nÚjabban {self.ujsz_1} alkalommal adták első, {self.ujsz_2} alkallommal második keresztnévnek."
 nevek = []
-
+nepesseg: int = 0
 with open("UTONEV.txt","rt",encoding="ANSI") as be:
     be.readline()
     for sor in be:
         sor = sor.strip().split(";")
         nevek.append(Nev(sor[0],sor[1],(sor[2]),(sor[3]),(sor[4]),sor[5]))
-print(nevek[0])
-    
+for nev in nevek:
+    nepesseg += nev.elso
+print(f"{len(nevek)} névről van adat a listában")
+print(f"Az adott évben {nepesseg} volt az ország népessége")
