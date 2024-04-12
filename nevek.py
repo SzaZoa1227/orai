@@ -8,8 +8,10 @@ class Nev:
         self.nem = nem
         if self.elso == "":
             self.elso = 0
+        else: self.elso = int(self.elso)
         if self.masodik == "":
             self.masodik = 0
+        else: self.masodik = int(self.masodik)
         if self.ujsz_1 == "":
             self.ujsz_1 = 0
         if self.ujsz_2 == "":
@@ -24,6 +26,8 @@ class Nev:
         \nÚjabban {self.ujsz_1} alkalommal adták első, {self.ujsz_2} alkallommal második keresztnévnek."
 nevek = []
 nepesseg: int = 0
+nok:int = 0
+ferfiak:int = 0
 with open("UTONEV.txt","rt",encoding="ANSI") as be:
     be.readline()
     for sor in be:
@@ -31,5 +35,10 @@ with open("UTONEV.txt","rt",encoding="ANSI") as be:
         nevek.append(Nev(sor[0],sor[1],(sor[2]),(sor[3]),(sor[4]),sor[5]))
 for nev in nevek:
     nepesseg += nev.elso
+for nev in nevek:
+    if nev.nem == "Férfi":
+        ferfiak += nev.elso
+    else: nok += nev.elso
 print(f"{len(nevek)} névről van adat a listában")
 print(f"Az adott évben {nepesseg} volt az ország népessége")
+print(f"Az adott évben a nők száma: {nok}\nAz adott évben a férfiak száma: {ferfiak}")
