@@ -1,10 +1,10 @@
 class Nev:
     def __init__(self,utonev,elso,masodik,ujsz_1,ujsz_2,nem) -> None:
         self.utonev = utonev
-        self.elso = elso
-        self.masodik = masodik
-        self.ujsz_1 = ujsz_1
-        self.ujsz_2 = ujsz_2
+        self.elso = (elso)
+        self.masodik =(masodik)
+        self.ujsz_1 = (ujsz_1)
+        self.ujsz_2 = (ujsz_2)
         self.nem = nem
         if self.elso == "":
             self.elso = 0
@@ -22,8 +22,12 @@ class Nev:
     def __str__(self)-> str:
         return f"{self.utonev} {self.nem} keresztnevet régen {self.elso} alkalommal adták első keresztnévnek, {self.masodik} alkalommal második keresztnévnek.\
         \nÚjabban {self.ujsz_1} alkalommal adták első, {self.ujsz_2} alkallommal második keresztnévnek."
+nevek = []
 
 with open("UTONEV.txt","rt",encoding="ANSI") as be:
     be.readline()
     for sor in be:
         sor = sor.strip().split(";")
+        nevek.append(Nev(sor[0],sor[1],(sor[2]),(sor[3]),(sor[4]),sor[5]))
+print(nevek[0])
+    
