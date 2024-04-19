@@ -32,3 +32,15 @@ for adat in adatok:
     if adat.nagydij == "Magyar Nagydíj":
         print(f"\t{adat.datum}: {adat.helyezes}. hely")
 
+hiba = {}
+print("5. feladat: Hibastatisztika")
+for adat in adatok:
+    if adat.hiba_oka == "":
+        continue
+    elif adat.hiba_oka not in hiba:
+        hiba[adat.hiba_oka] = 1
+    else: hiba[adat.hiba_oka] += 1
+for hibaMegnevezese,szama in hiba.items():
+    if szama > 1:
+        print(f"\t{hibaMegnevezese}: {szama}")
+
