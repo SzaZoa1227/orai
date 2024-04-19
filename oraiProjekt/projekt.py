@@ -21,5 +21,10 @@ with open("kimi.csv","rt",encoding="utf-8") as be:
         sor[4] = int(sor[4])
         sor[6] = True if sor[6] == "I" else False
         adatok.append(Adat(sor[0],sor[1],sor[2],sor[3],sor[4],sor[5],sor[6],sor[7]))
-    print(f"3. feladat: {len(adatok)}")
 
+
+print(f"3. feladat: {len(adatok)}")
+print(f"4. feladat: Magyar Nagydíj helyezései\n")
+for adat in adatok:
+    if adat.nagydij == "Magyar Nagydíj":
+        print(f"\t{adat.datum}: {adat.helyezes}")
