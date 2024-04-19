@@ -44,3 +44,10 @@ for hibaMegnevezese,szama in hiba.items():
     if szama > 1:
         print(f"\t{hibaMegnevezese}: {szama}")
 
+evszam = int(input("6. feladat: Évszáma:    "))
+datum = ""
+for adat in adatok:
+    datum = adat.datum
+    datum = datum.split(".")
+    datum = datum[0]
+     
