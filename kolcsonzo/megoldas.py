@@ -8,11 +8,11 @@ class Kolcsonzes:
         self.VidoO = VidoO
     def neve(self) -> str:
         return self.nev
-    def kolcsonzesIdje(self) -> int:
-        kezdet  = self.KidoP*60 + self.KidoO*60*60
-        veg = self.VidoO*60*60 + self.KidoP*60
-        hossz = veg - kezdet
-        return hossz
+    def kolcsonzesIdeje(self) -> tuple[int,int]:
+        kezdet = self.KidoO *60*60 + self.KidoP*60
+        veg = self.VidoO *60*60 + self.VidoP*60
+        return kezdet, veg
+
 kolcsonzesek: list = []
 
 
@@ -35,6 +35,8 @@ print("Második feladat")
 for kolcsonzo in kolcsonzesek:
     if kolcsonzo.neve().lower() == nev.lower():
         print(f"{kolcsonzo.nev} kölcsönzött {kolcsonzo.KidoO}:{kolcsonzo.KidoP}-{kolcsonzo.VidoO}:{kolcsonzo.VidoP} között kölcsönzött.")
+bekerO = 0
+bekerP = 0
 rossz = 1
 while rossz:
-    ekerO = int(input("Adj meg egy időpontot, melye"))
+    bekerO = input("Adj meg egy számot:)
