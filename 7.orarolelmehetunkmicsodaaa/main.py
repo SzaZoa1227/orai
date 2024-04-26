@@ -16,4 +16,5 @@ with open("fuvar.csv","rt",encoding="utf-8") as bemenet:
         sor = sor.replace(",",".")
         sor = sor.split(";")
         fuvarok.append(Fuvar(int(sor[0]),sor[1],int(sor[2]), float(sor[3]),float(sor[4]),float(sor[5]),sor[6]))
+print(len(fuvarok))
 
