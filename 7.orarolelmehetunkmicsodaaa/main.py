@@ -18,3 +18,19 @@ with open("fuvar.csv","rt",encoding="utf-8") as bemenet:
         fuvarok.append(Fuvar(int(sor[0]),sor[1],int(sor[2]), float(sor[3]),float(sor[4]),float(sor[5]),sor[6]))
 print(len(fuvarok))
 
+bevetel = 0
+fuvarjai = 0
+
+fizetesimodok = {}
+
+for fuvar in fuvarok:
+    if fuvar.fizetes_modja not in fizetesimodok.keys():
+        fizetesimodok[fuvar.fizetes_modja] = 1
+    else: fizetesimodok[fuvar.fizetes_modja] += 1
+    if fuvar.azonosito == 6185:
+        fuvarjai += 1
+        bevetel += (fuvar.viteldij * fuvar.tavolsag) + fuvar.borravalo
+print(f"6185 számú taxinak {fuvarjai} fuvar alatt {bevetel}$ bevétele volt.")
+
+for kulcs,ertek in fizetesimodok.items():
+    print(kulcs,ertek)
